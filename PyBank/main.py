@@ -14,7 +14,7 @@ budget_dataCSV = os.path.join("..", "PyBank", "Resources", "budget_data.csv")
 with open(budget_dataCSV, 'r') as csvfile:
 
     # Split the data on commas
-    csvreader = csv.reader(csvfile)
+    csvreader = csv.reader(csvfile, delimiter = ',')
 
     # Skip header
     next(csvreader)
@@ -67,7 +67,7 @@ file.write("--------------------------------------" + '\n')
 file.write("Total Months: " + str(len(date)) + '\n')
 file.write("Total: $"+ str(sum(profit_loss)) + '\n')
 file.write("Average Change: $" + str(round(average_change)) + '\n')
-file.write("Greatest Increase in Profits:" + max_increase_date + " $" + str(max_increase) + '\n')
-file.write("Greatest Decrease in Profits:" + min_increase_date + " $" + str(min_increase) + '\n')
+file.write("Greatest Increase in Profits:" + max_increase_date + " (" + "$"+ str(max_increase) + ")" + '\n')
+file.write("Greatest Decrease in Profits:" + min_increase_date + " (" + "$"+ str(min_increase) + ")" + '\n')
 
 file.close()
